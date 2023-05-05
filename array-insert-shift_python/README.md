@@ -22,7 +22,5 @@ def insertShiftArray(arr, val):
     Inserts a value into an array at the middle index.
     """  
     mid = len(arr) // 2  # find the middle index
-    for i in range(len(arr) - 1, mid, -1):
-        arr[i] = arr[i - 1]  # shift elements to the right
-    arr[mid] = val    # insert the new value in the middle
-    return arr[:mid] + [val] + arr[mid+1:]
+    
+    return arr[:mid] + [val] + arr[mid:]
