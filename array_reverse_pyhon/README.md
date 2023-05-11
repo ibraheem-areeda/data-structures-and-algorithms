@@ -2,7 +2,7 @@
 I will write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available in python, it will return an array with elements in reversed order.
 
 ## Whiteboard Process
-![](./assets/Screenshot%202023-05-02%20234202.png)
+![](./assets/code%20challange%201.png)
 
 ## Approach & Efficiency
 What approach did you take? 
