@@ -2,13 +2,7 @@
 I will write a function called insertShiftArray which takes in an array and a value to be added. Without utilizing any of the built-in methods available to python, return an array with the new value added at the middle index.
 
 ## Whiteboard Process
-![](./assets/Problem%20Domain.png)
-![](./assets/viusal.png)
-![](./assets/Algorithm.png)
-![](./assets/Pseudocode.png)
-![](./assets/code.png)
-![](./assets/test.png)
-![](./assets/wb.png)
+![](./assets/code%20challange%202.png)
 
 
 ## Approach & Efficiency
@@ -17,10 +11,8 @@ This implementation creates a new list by concatenating three slices of the orig
 
 ## Solution
 
-def insertShiftArray(arr, val):  
+def insert_shift_array(arr, val):  
     """
     Inserts a value into an array at the middle index.
     """  
-    mid = len(arr) // 2  # find the middle index
-    
-    return arr[:mid] + [val] + arr[mid:]
+    return arr[:len(arr) // 2] + [val] + arr[len(arr) // 2:]
