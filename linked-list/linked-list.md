@@ -1,7 +1,5 @@
 # Code Challenge: Class 05: Linked List 
-## Project: linked-list 
-## Author: Ibraheem areeda
-### Setup :
+tst
 1. create environment (contaner):
 ```
 python -m venv .venv
