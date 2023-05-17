@@ -12,17 +12,28 @@ The challenge want us to implement the following methods for the Linked List cla
 ## Whiteboard Process
 Here I will attach the pictures of the 3 whiteboards I did for the 3 methods in the past description
 - Append 
-![append](./assets/append.png)
+![append](./assets/new%20append.png)
 
 - Insert Befor 
-![insert_befor](./assets/insert%20before.png)
+![insert_befor](./assets/new%20insert%20befor.png)
 
 - Insert After
-![insert_after](./assets/insert%20after.png)
+![insert_after](./assets/new%20insert%20after.png)
 
 ## Approach & Efficiency
-My approach was to simplfy the problem and to solved like baby steps, using "TDD" test driven development I went btween the tests and the code back and forth, basically I wrote the test then I wrote the algorithm
-then I implemented it by coding, for this challange I didnt need to use google at all, I solved it by my self, finally I was concerned about the space and time complexity, so as you know working on linked lists results a O(n) and that what I got here, it always looping because we dont have index for our values.   
+The approach taken is to implement a Linked List using a Node class and a LinkedList class.
+
+The Node class represents individual nodes in the Linked List. Each node has a value property to store the value it holds and a pointer property that points to the next node in the list. The __repr__ method is overridden to provide a string representation of the Node instance.
+
+The LinkedList class represents the overall Linked List structure. It has a head property that points to the first node in the list. The class provides the following new methods:
+
+- append: Adds a new node with the given value at the end of the list. It iterates through the list until it finds the last node and then appends the new node. The time complexity for this approach is O(n) since it may need to traverse the entire list in the worst case, but the space complexity = O(1) : because it requires a constant amount of additional space
+
+ - insert_before: Inserts a new node with a new value before the first occurrence of a specified value in the list. It iterates through the list, finds the target value, and inserts the new node before it. The time complexity for this approach is O(n) since it may need to traverse the entire list to find the target value, but the space complexity = O(1) : because it requires a constant amount of additional space
+
+ - insert_after: Inserts a new node with a new value after the first occurrence of a specified value in the list. It iterates through the list, finds the target value, and inserts the new node after it. The time complexity for this approach is O(n) since it may need to traverse the entire list to find the target value, but the space complexity = O(1) : because it requires a constant amount of additional space
+
+The space complexity of the code over all is O(n) since it stores n nodes in the Linked List.
 
 ## Solution
 ```
