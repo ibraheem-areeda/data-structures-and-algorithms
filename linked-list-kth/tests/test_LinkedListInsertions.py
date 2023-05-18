@@ -1,5 +1,5 @@
 import pytest
-from LinkedListInsertions.LinkedListInsertions import (
+from linkedListKth.linkedListKth import (
   Node , 
   LinkedList
 )
@@ -51,7 +51,7 @@ def test_collection_of_all_values(linked_ltest):
 
 
 #######################
-# new tests
+# Linked List Insertions tests
 #######################
 
 def test_add_node_to_end (linked_ltest):
@@ -91,7 +91,59 @@ def test_insert_after_last_node(linked_ltest):
     excepted = "LinkedList instance. head = Node instance. value = 1 pointer = Node instance. value = 2 pointer = Node instance. value = 3 pointer = Node instance. value = 4 pointer = Node instance. value = 88 pointer = None"
     act = str(linked_ltest)
     assert act == excepted
-    
+
+#######################
+# Linked List kth value tests
+#######################
+
+def test_greater_than_the_length(linked_ltest):
+    result = linked_ltest.kth_from_end(9)
+    excepted = "the length of linked list is 3, please inter equal or a lower number"
+    act = str(result)
+    assert act == excepted
+
+def  test_k_equal_length_linkedlist (linked_ltest):
+    result = linked_ltest.kth_from_end(3)
+    excepted = "Node instance. value = 1 pointer = Node instance. value = 2 pointer = Node instance. value = 3 pointer = Node instance. value = 4 pointer = None"
+    act = str(result)
+    assert act == excepted
+
+def test_Happy_Path (linked_ltest):
+    result = linked_ltest.kth_from_end(2)
+    excepted = "Node instance. value = 2 pointer = Node instance. value = 3 pointer = Node instance. value = 4 pointer = None"
+    act = str(result)
+    assert act == excepted
+
+
+def test_k_not_positive_integer(linked_ltest):
+    result = linked_ltest.kth_from_end(-1)
+    excepted = "Node instance. value = 1 pointer = Node instance. value = 2 pointer = Node instance. value = 3 pointer = Node instance. value = 4 pointer = None"
+    act = str(result)
+    assert act == excepted
+
+def test_linked_list_size_1():
+    test = LinkedList(Node(1))
+    result= test.kth_from_end(0)
+    excepted = "the linked list has only one value"
+    act = result
+    assert act == excepted
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #######################
 # Fixtures
 #######################
