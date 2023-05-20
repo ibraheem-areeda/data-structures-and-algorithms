@@ -26,6 +26,25 @@ class stack:
         else: return False
 
 class Queue :
-    def __init__(self , front = None , back = None):
-       pass 
+    def __init__(self , front = None):
+       self.front = front
+
+    def enqueue (self , value):
+        self.back = Node(value)
+
+    def dequeue(self):
+        if self.front == None: return "this queue is empty"
+        temp = self.front
+        self.front = temp.next_
+        temp.next_ = None
+
+    def peek (self):
+        if self.front == None: return "this queue is empty"
+        else : return self.front.value
+
+    def is_empty(self):
+        if self.front == None: return True
+        else: return False
+
+
 
