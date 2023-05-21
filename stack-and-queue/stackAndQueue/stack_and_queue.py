@@ -3,6 +3,9 @@ class Node:
         self.value = value
         self.next_ = next_
 
+    def __str__ (self):
+        return f"{self.value}"
+
 class stack:
     def __init__ (self, top = None):
         self.top = top
@@ -33,29 +36,48 @@ class Queue :
     def __init__(self , front = None):
        self.front = front
 
+
+    def __str__(self):
+        if self.front == None: return "this queue is empty"
+        else : return f"the queue front = {self.front.value},"
+            
     def enqueue (self , value):
-        self.back = Node(value)
+        node = Node(value)
+        if self.is_empty(): 
+            self.front = node
+        else:
+            current = self.front
+            while current.next_:
+                current = current.next_
+            current.next_ = node
+
 
     def dequeue(self):
-        if self.front.value == None: return "this queue is empty"
-        temp = self.front
-        self.front = temp.next_
-        temp.next_ = None
+        if self.front == None: return "this queue is empty"
+        temp = self.front.value
+        self.front = self.front.next_
+        # temp.next_ = None
+        return temp
 
     def peek (self):
         if self.front == None: return "this queue is empty"
-        else : return self.front.value
+        else : return f"the queue front = {self.front.value},"
 
     def is_empty(self):
         if self.front == None: return True
         else: return False
 
-
 if __name__=="__main__":
-    node1 = Node(1)
-    test_stack = stack(node1)
-    test_stack.push(2)
-    test_stack.push(3)
-    print(test_stack.top.value)
-    test_stack.pop()
-    print(test_stack.top.value)
+
+    test_queue = Queue()
+    test_queue.enqueue(1)
+    test_queue.enqueue(2)
+    test_queue.enqueue(3)
+    test_queue.dequeue()
+    test_queue.dequeue()
+
+    print(test_queue)
+
+
+
+
