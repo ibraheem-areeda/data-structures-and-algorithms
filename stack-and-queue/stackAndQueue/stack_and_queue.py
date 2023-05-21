@@ -43,8 +43,7 @@ class Queue :
             
     def enqueue (self , value):
         node = Node(value)
-        if self.is_empty(): 
-            self.front = node
+        if self == None: self.front = node
         else:
             current = self.front
             while current.next_:
