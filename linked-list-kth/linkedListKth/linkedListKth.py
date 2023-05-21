@@ -76,6 +76,34 @@ class LinkedList ():
                 current.pointer = Node(new_value,current.pointer)
                 return
             else: current = current.pointer
+
+    def kth_from_end (self,k):
+        count = 0
+        current = self.head
+        if current.pointer == None: return "the linked list has only one value"
+        while current:
+            count += 1
+            tail = current
+            current = current.pointer
+        if k == 0 : return tail
+        if k >= count : return f"the length of linked list is {count-1}, please inter equal or a lower number"
+        if k < (-count):return f"the length of linked list is {count-1}, please a reasonable input number"
+        current = self.head
+        if k>0 :
+            print ("ok")
+            k_steps = count - k
+            while k_steps != 0 :
+                k_value = current
+                current = current.pointer
+                k_steps -= 1
+            return k_value
+        else:
+            k_steps = count - (count + k)
+            while k_steps != 0 :
+                    k_value = current
+                    current = current.pointer
+                    k_steps -= 1
+        return k_value
         
 
 if __name__=="__main__":
@@ -87,7 +115,10 @@ if __name__=="__main__":
     node_1=Node (1,node_2)
     
     linked_ltest = LinkedList (node_1)
+
+    linked_ltest2 = LinkedList (Node(1))
     
-    linked_ltest.insert_after(4,88)
+
 
     print(111111,linked_ltest)
+    print(22222,linked_ltest2.kth_from_end(0))
