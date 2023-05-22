@@ -2,7 +2,7 @@
 The task is to implement a method called "kth from end" for the Linked List class. This method takes a parameter 'k' and returns the value of the node that is k positions from the tail of the linked list. It uses the Node class and other methods from the Linked List class to locate and retrieve the desired node. This method adds the ability to access values in the linked list based on their positions from the end.
 
 ## Whiteboard Process
-
+![](./assets/code%20challange%207.png)
 
 ## Approach & Efficiency
 The approach in the provided code is to iterate through the linked list and count the number of elements while maintaining a reference to the tail of the list. Then, based on the value of `k`, it traverses the list again to find the kth element from the end.
