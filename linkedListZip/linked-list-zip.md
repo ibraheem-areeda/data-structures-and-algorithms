@@ -3,7 +3,7 @@ Write a function called zip lists takes 2 linked lists as Arguments and Return N
 
 ## Whiteboard Process
 ![](./assets/linked-list-zip.png)
-
+![](./linked-list-zip.md)
 ## Approach & Efficiency
 The zip_lists function follows a straightforward approach to zip two linked lists together. It starts by checking if either of the linked lists is empty. If one list is empty, the function returns the other list as the result, as there is no need to perform any zipping in that case.
 Next, it initializes two pointers, current1 and current2, to the heads of the first and second linked lists, respectively. These pointers will be used to traverse the lists.
