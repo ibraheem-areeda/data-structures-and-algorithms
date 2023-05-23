@@ -8,6 +8,7 @@
 | Singly Linked Lists | [Link](./linked-list/linked-list.md) |
 | linked-list-insertions | [Link](./linked_list_insertions/linked-list-insertions.md) |
 | linked-list-kth | [Link](./linked-list-kth/linked-list-kth.md) |
+| linked-list-zip | [Link](./linkedListZip/linked-list-zip.md) |
 
 
 
