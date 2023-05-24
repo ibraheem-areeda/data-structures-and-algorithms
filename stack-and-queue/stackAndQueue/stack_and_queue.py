@@ -60,7 +60,7 @@ class Stack:
             If the stack is empty, returns "This stack is empty".
         """
         if self.top is None:
-            return "this stack is empty"
+            raise Exception("this stack is empty")
         temp = self.top
         self.top = temp.next_
         temp.next_ = None
@@ -75,7 +75,7 @@ class Stack:
             If the stack is empty, raise AttributeError and print "This stack is empty".
         """
         if self.top is None:
-            raise AttributeError("this stack is empty")
+            raise Exception("this stack is empty")
         return self.top.value
 
     def is_empty(self):
@@ -135,7 +135,7 @@ class Queue:
             If the queue is empty, returns "This queue is empty".
         """
         if self.front is None:
-            return "This queue is empty"
+            raise Exception("this queue is empty")
         temp = self.front.value
         self.front = self.front.next_
         return temp
@@ -149,7 +149,7 @@ class Queue:
             If the queue is empty, returns "This queue is empty".
         """
         if self.front is None:
-            return "This queue is empty"
+            raise Exception("this queue is empty")
         return f"the queue front = {self.front.value},"
 
     def is_empty(self):
