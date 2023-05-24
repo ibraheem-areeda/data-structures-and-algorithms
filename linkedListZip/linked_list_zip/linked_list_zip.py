@@ -113,7 +113,8 @@ class LinkedList ():
                     k_steps -= 1
         return k_value
     
-    def linked_list_zip(list1,list2):
+### out if the class ###
+def linked_list_zip(list1,list2): # function out of the class
             
         if not list1.head:
             return list2
@@ -164,4 +165,4 @@ if __name__=="__main__":
 
     print(111111,linked_ltest)
     print(22222,linked_ltest2)
-    print(444444,LinkedList.linked_list_zip(linked_ltest,linked_ltest2))
+    print(444444,linked_list_zip(linked_ltest,linked_ltest2))
