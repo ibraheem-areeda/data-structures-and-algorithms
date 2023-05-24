@@ -1,4 +1,4 @@
-# stack-and-queue
+# Stack-And-Queue
 The task is to implement a Stack and a Queue using a Linked List. 
 The Stack class has a "top" property and supports push, pop, peek, and is_empty operations. 
 The Queue class has a "front" property and supports enqueue, dequeue, peek, and is_empty operations. 
