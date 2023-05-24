@@ -2,7 +2,7 @@
 The task is to implement a Stack and a Queue using a Linked List. 
 The Stack class has a "top" property and supports push, pop, peek, and is_empty operations. 
 The Queue class has a "front" property and supports enqueue, dequeue, peek, and is_empty operations. 
-Both classes use the Node class to represent the nodes in the Linked List.
+Both classes use the Node class to represent the nodes in the Linked List .
 
 ## Whiteboard Process
 not required for this challenge
