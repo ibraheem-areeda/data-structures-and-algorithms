@@ -18,7 +18,8 @@ The time complexity of the zip_lists function is O(n), where n is the total numb
 
 ## Solution
 ```
-def linked_list_zip(list1,list2):
+### out if the class ###
+def linked_list_zip(list1,list2): # function out of the class
             
         if not list1.head:
             return list2
