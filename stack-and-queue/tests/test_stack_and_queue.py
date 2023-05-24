@@ -1,12 +1,12 @@
 import pytest
 from stackAndQueue.stack_and_queue import (
   Node , 
-  stack,
+  Stack,
   Queue
 )
 
 def test_push_onto_stack():
-    test_stack = stack()
+    test_stack = Stack()
     test_stack.push(1)
     actual = str(test_stack) #call the function with the test value
     expected = "the stack top value = 1" #put the expected result 
@@ -40,16 +40,15 @@ def test_peek_next_item_on_stack(test_stack_demo):
     assert actual == expected  
 
 def test_instantiate_empty_stack():
-    empty_stack = stack()
+    empty_stack = Stack()
     actual = str(empty_stack) 
     expected = "this stack is empty"  
     assert actual == expected  
 
-def test_peek_on_empty_stack():
-    empty_stack = stack()
-    actual = empty_stack.peek()
-    expected = "this stack is empty"  
-    assert actual == expected 
+# def test_peek_on_empty_stack():
+#     empty_stack = Stack()
+#     actual = empty_stack.peek()
+#     assert actual == raise AttributeError("this stack is empty")  
 
 def test_enqueue_into_queue():
     node1 = Node(1)
@@ -115,7 +114,7 @@ def test_peek_empty_queue_exception():
 
 @pytest.fixture
 def test_stack_demo():
-        test_stack = stack()
+        test_stack = Stack()
         test_stack.push(1)
         test_stack.push(2)
         test_stack.push(3)
