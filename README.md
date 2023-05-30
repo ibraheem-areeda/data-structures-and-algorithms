@@ -9,4 +9,4 @@
 | linked-list-insertions | [Link](./linked_list_insertions/linked-list-insertions.md) |
 | linked-list-kth | [Link](./linked-list-kth/linked-list-kth.md) |
 | stack-and-queue | [Link](./stack-and-queue/stack-and-queue.md) |
-| linked-list-zip | [Link](./linkedListZip/linked-list-zip.md) |
+| stack-queue-pseudo | [Link](./stack-queue-pseudo/stack-queue-pseudo.md) |
