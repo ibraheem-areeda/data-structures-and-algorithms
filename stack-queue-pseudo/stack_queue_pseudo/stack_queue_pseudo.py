@@ -40,7 +40,7 @@ class Stack:
         """
         if self.top is None:
             return "this stack is empty"
-        return f"the stack top value = {self.top.value}"
+        return f"the stack top value = {self.top.value} next value = {self.top.next_}"
 
     def push(self, value):
         """
@@ -77,16 +77,66 @@ class Stack:
         return self.top.value
 
 
-class  PseudoQueue ():
+class PseudoQueue():
+    """
+    PseudoQueue represents a queue implemented using two stacks.
+
+    The class provides methods to enqueue and dequeue elements from the queue.
+
+    Attributes:
+    - stack_in (Stack): Stack used for enqueue operation.
+    - stack_out (Stack): Stack used for dequeue operation.
+
+    Methods:
+    - enqueue(value): Inserts an element into the queue.
+    - dequeue(): Removes and returns the element from the front of the queue.
+    """
     def __init__(self):
-        self.stack1 = Stack()
-        self.stack2 = Stack()
-    
-    def enqueue(self,value):
-        self.stack1.push(value)
+        self.stack_in = Stack()
+        self.stack_out = Stack()
+
+    def enqueue(self, value):
+        """
+        Inserts an element into the queue.
+
+        Args:
+        - value: The value to be inserted.
+        """
+        self.stack_in.push(value)
 
     def dequeue(self):
-        pass
-    
+        """
+        Removes and returns the element from the front of the queue.
 
+        Returns:
+        - The element at the front of the queue.
+
+        Raises:
+        - Exception : If the queue is empty.
+        """
+        temp = self.stack_in.top
+        while temp:
+            self.stack_in.top = temp.next_
+            self.stack_out.push(temp)
+            temp = temp.next_
+        self.stack_out.pop()
+        temp = self.stack_out.top
+        while temp:
+            self.stack_out.top = temp.next_
+            self.stack_in.push(temp)
+            temp = temp.next_
+
+
+    
+if __name__=="__main__":
+    v3 = 3
+    v2 = Node(2,Node(v3))
+    v1 = Node(1,Node(v2))
+    tset = PseudoQueue()
+    tset.enqueue(v1)
+    tset.enqueue(v2)
+
+
+    print (tset.stack_in)
+    print (tset.stack_out)
 
