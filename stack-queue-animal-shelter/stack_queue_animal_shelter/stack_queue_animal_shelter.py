@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, value, next_=None):
         """
         Initialize a new Node object.
@@ -19,7 +18,7 @@ class Node:
             A string representation of the value stored in the Node.
         """
         return f"{self.value}"
-
+    
 class Queue:
     def __init__(self, front=None):
         """
@@ -94,24 +93,102 @@ class Queue:
         return self.front is None
 
 class Animal():
-    def __init__ (self,name,species,next_=None):
+    def __init__ (self, name, species):
+        """
+        Initialize an Animal instance with a name and species.
+
+        Args:
+            name (str): The name of the animal.
+            species (str): The species of the animal.
+        """
         self.name = name
         self.species = species
-        self.next_ = next_
-        self.node = Node(Animal,self.next_)
+
+    def __str__(self):
+        """
+        Returns a string representation of the Animal object.
+
+        Returns:
+            str: The string representation of the Animal object, including its name and species.
+        """
+        return f"Animal name is {self.name}, Animal species is {self.species}"
 
 
-class AnimalShelter ():
+class AnimalShelter():
     def __init__(self):
-        cat_queue = Queue()
-        dog_queue = Queue()
-    def enqueue (animal):
-        if not isinstance(animal, Animal) : return "please enter dog or cat"
+        """
+        Initialize an AnimalShelter object.
+
+        This object keeps track of cat and dog queues.
+        """
+        self.cat_queue = Queue()
+        self.dog_queue = Queue()
+
+    def enqueue(self, animal):
+        """
+        Enqueue an animal into the appropriate queue.
+
+        Args:
+            animal (Animal): The Animal instance to be enqueued.
+
+        Returns:
+            str or None: If the animal is not an instance of Animal, or if the species or name is invalid, returns an error message. Otherwise, returns None.
+        """
+        if not isinstance(animal, Animal):
+            return "Please enter an animal instance."
+        if animal.species != "cat" and animal.species != "dog":
+            return "Please enter 'cat' or 'dog' for the animal species."
+        if type(animal.name) is not str:
+            return "Please enter the animal name correctly."
+        if animal.species == "cat":
+            self.cat_queue.enqueue(Node(animal))
+        else:
+            self.dog_queue.enqueue(Node(animal))
+
+    def dequeue(self, pref):
+        """
+        Dequeue an animal from the appropriate queue based on preference.
+
+        Args:
+            pref (str): The preferred species ('cat' or 'dog') for dequeuing.
+
+        Returns:
+            str or None: If the preference is not valid, returns an error message. Otherwise, returns None.
+        """
+        if pref != "cat" and pref != "dog":
+            return "Please enter 'cat' or 'dog' as the preference."
+        if pref == "cat":
+            self.cat_queue.dequeue()
+        else:
+            self.dog_queue.dequeue()
+
+            
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     
 if __name__ == "__main__":
     meme = Animal("meme" , "cat")
-    print(meme.node.value.name)
-    print(AnimalShelter.enqueue(meme))
+    rex = Animal("rex","dog")
+    leya = Animal("leya","cat")
+    leo_shelter = AnimalShelter()
+    print(meme.species)
+    leo_shelter.enqueue(meme)
+    leo_shelter.enqueue(rex)
+    leo_shelter.enqueue(leya)
+    print(leo_shelter.cat_queue)
+    print(leo_shelter.dog_queue)
+    print(meme.name)
+    print(leo_shelter.dequeue("cat"))
+    print(leo_shelter.cat_queue)
