@@ -1,4 +1,4 @@
-# Challenge Title
+# Code Challenge 12 : First-in, First out Animal Shelter.
 The tasl is to write `AnimalShelter` class represents a shelter that holds dogs and cats using a first-in, first-out approach. It has an `enqueue` method to add animals to the shelter, which must have species (cat or dog) and name properties. The `dequeue` method removes and returns an animal based on a specified preference (dog or cat). If the preference is not valid, null or an appropriate null-like value is returned.
 ## Whiteboard Process
 ![](./asstets/enqueue%20animal.png)
