@@ -21,7 +21,7 @@ class Node:
         return f"{self.value}"
     
 class Queue:
-    def __init__(self, front=None):
+    def __init__(self, front=None, back = None):
         """
         Initialize a new Queue object.
 
@@ -29,6 +29,7 @@ class Queue:
             front: The front node of the queue. Default is None.
         """
         self.front = front
+        self.back = back
 
     def __str__(self):
         """
@@ -53,10 +54,10 @@ class Queue:
         if self.front is None:
             self.front = node
         else:
-            current = self.front
-            while current.next_:
-                current = current.next_
-            current.next_ = node
+            self.back = self.front
+            while self.back.next_:
+                self.back = self.back.next_
+            self.back.next_ = node
 
     def dequeue(self):
         """
@@ -183,6 +184,7 @@ def validate_brackets (string):
 
 
     while queue1.front :
+        print("theloop is", queue1.front is not None)
         print("iiiiiiiiiii",i)
         print("befor if statment empty_brackets[i]",empty_brackets[0], "q1=", queue1.to_string(),"q1.front",queue1.front.value, "q2=",queue2.to_string())
         if empty_brackets[0]+ queue1.front.value in ["{}","()","[]"] :
@@ -209,48 +211,24 @@ def validate_brackets (string):
             queue2.enqueue(temp)
             print("after False -> deque[this is queue1]",queue1.to_string())
             print("Q2",queue2.to_string())
-            
 
-        print("final Q2 =",queue2.to_string())
+    while queue2.front:
+        temp = queue2.front
+        queue2.dequeue()
+        queue1.enqueue(temp)
+        print("nnnnnnnnnode",queue1.front.value)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #     queue.enqueue(s1[bracket])
-    #     stack.push(s2[bracket])
-    # while not stack.is_empty():
-    #     if  queue.front.value + stack.top.value in ["{}","()","[]"] :
-    #         stack.pop()
-    #         queue.dequeue()
-    #     else:
-    #         False
-    # return True
+    while queue1.front :
+        if str(queue1.front.value) + empty_brackets[0] in ["{}","()","[]"] :
+            queue1.dequeue()
+            if queue1.front :
+                empty_brackets = queue1.front.value
+                queue1.dequeue()
+                print("afer deqe for compare",queue1.to_string())
+            else:
+                    return True
 
 
 
 if __name__ == "__main__":
-    print(validate_brackets("()[[Extra Characters]]"))
+    print(validate_brackets("{(})"))
