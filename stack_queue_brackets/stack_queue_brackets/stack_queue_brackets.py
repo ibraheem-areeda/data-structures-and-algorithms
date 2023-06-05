@@ -172,6 +172,7 @@ class Stack:
 def validate_brackets (string):
     queue1 = Queue()
     queue2 = Queue()
+    validation_arr = ["{}","()","[]"]
     empty_brackets = re.sub(r"[^\]\[\(\)\{\}]+", "" , string )
 
     print("all",empty_brackets)
@@ -187,7 +188,7 @@ def validate_brackets (string):
         print("theloop is", queue1.front is not None)
         print("iiiiiiiiiii",i)
         print("befor if statment empty_brackets[i]",empty_brackets[0], "q1=", queue1.to_string(),"q1.front",queue1.front.value, "q2=",queue2.to_string())
-        if empty_brackets[0]+ queue1.front.value in ["{}","()","[]"] :
+        if empty_brackets[0]+ queue1.front.value in  validation_arr :
             i += 1
             print("ttttttttttt",empty_brackets[0]+ queue1.front.value)
             queue1.dequeue()
@@ -205,6 +206,11 @@ def validate_brackets (string):
         else:
             print("q1",queue1.to_string())
 
+            test = queue1.to_string()
+            # print(test[0],test[1],test[2] )
+            if test[0] + test[2] in validation_arr and test[0] != test[1] and test[2] != test[1]:
+                return False
+
             print("after else comp[0]",empty_brackets[0])
             temp = queue1.front
             queue1.dequeue()
@@ -219,7 +225,7 @@ def validate_brackets (string):
         print("nnnnnnnnnode",queue1.front.value)
 
     while queue1.front :
-        if str(queue1.front.value) + empty_brackets[0] in ["{}","()","[]"] :
+        if str(queue1.front.value) + empty_brackets[0] in validation_arr :
             queue1.dequeue()
             if queue1.front :
                 empty_brackets = queue1.front.value
@@ -231,4 +237,13 @@ def validate_brackets (string):
 
 
 if __name__ == "__main__":
+    print(validate_brackets("{}"))
+    print(validate_brackets("{}(){}"))
+    print(validate_brackets("()[[Extra Characters]]"))
+    print(validate_brackets("(){}[[]]"))
+    print(validate_brackets("{}{Code}[Fellows](())"))
+    print(validate_brackets("[({}]"))
+    print(validate_brackets("(]("))
     print(validate_brackets("{(})"))
+
+
