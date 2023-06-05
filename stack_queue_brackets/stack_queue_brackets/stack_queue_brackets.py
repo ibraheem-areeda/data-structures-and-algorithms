@@ -187,11 +187,15 @@ def validate_brackets (string):
         print("befor if statment empty_brackets[i]",empty_brackets[0], "q1=", queue1.to_string(),"q1.front",queue1.front.value, "q2=",queue2.to_string())
         if empty_brackets[0]+ queue1.front.value in ["{}","()","[]"] :
             i += 1
-            if queue2.front is not None:
-                empty_brackets = queue2.to_string()
             print("ttttttttttt",empty_brackets[0]+ queue1.front.value)
             queue1.dequeue()
-            empty_brackets = queue1.front.value
+            print("afer deqe for match",queue1.to_string())
+            if queue1.front :
+                empty_brackets = queue1.front.value
+                queue1.dequeue()
+                print("afer deqe for compare",queue1.to_string())
+            else:
+                return True
 
 
             print("ok")
@@ -200,9 +204,14 @@ def validate_brackets (string):
             print("q1",queue1.to_string())
 
             print("after else comp[0]",empty_brackets[0])
+            temp = queue1.front
             queue1.dequeue()
+            queue2.enqueue(temp)
             print("after False -> deque[this is queue1]",queue1.to_string())
             print("Q2",queue2.to_string())
+            
+
+        print("final Q2 =",queue2.to_string())
 
 
 
@@ -244,4 +253,4 @@ def validate_brackets (string):
 
 
 if __name__ == "__main__":
-    print(validate_brackets("(){][}[]"))
+    print(validate_brackets("()[[Extra Characters]]"))
