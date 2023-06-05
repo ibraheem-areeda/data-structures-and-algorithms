@@ -1,3 +1,4 @@
+import re
 class Node:
     def __init__(self, value, next_=None):
         """
@@ -91,6 +92,14 @@ class Queue:
             True if the queue is empty, False otherwise.
         """
         return self.front is None
+    
+    def to_string (self):
+        temp = self.front
+        string = ""
+        while temp:
+            string += str(temp.value)
+            temp = temp.next_
+        return string
 
 class Stack:
     def __init__(self, top=None):
@@ -160,31 +169,79 @@ class Stack:
         return self.top is None
 
 def validate_brackets (string):
-    queue = Queue()
-    stack = Stack()
-    validation_arr = ["{","}","(",")","[","]"]
+    queue1 = Queue()
+    queue2 = Queue()
+    empty_brackets = re.sub(r"[^\]\[\(\)\{\}]+", "" , string )
 
-    for bracket in range(len(string)):
-        if string[bracket] not in validation_arr : 
-            index_to_remove = string.index(string[bracket])
-            string = string[:index_to_remove] + string[index_to_remove :]
-    print(string)
-    div = int(len(string)/2)
-    s1 = string[:div]
-    s2 = string[div:]
-    # if len(string) % 2 != 0 :return False
-    for bracket in range(len(s1)):
-        queue.enqueue(s1[bracket])
-        stack.push(s2[bracket])
-    while not stack.is_empty():
-        if  queue.front.value + stack.top.value in ["{}","()","[]"] :
-            stack.pop()
-            queue.dequeue()
+    print("all",empty_brackets)
+    if len(empty_brackets) % 2 != 0 :return False
+    for bracket in range(len(empty_brackets)):
+        queue1.enqueue(empty_brackets[bracket])
+
+    queue1.dequeue()
+    i=0
+
+
+    while queue1.front :
+        print("iiiiiiiiiii",i)
+        print("befor if statment empty_brackets[i]",empty_brackets[0], "q1=", queue1.to_string(),"q1.front",queue1.front.value, "q2=",queue2.to_string())
+        if empty_brackets[0]+ queue1.front.value in ["{}","()","[]"] :
+            i += 1
+            if queue2.front is not None:
+                empty_brackets = queue2.to_string()
+            print("ttttttttttt",empty_brackets[0]+ queue1.front.value)
+            queue1.dequeue()
+            empty_brackets = queue1.front.value
+
+
+            print("ok")
+            print("after True ","q2=",queue2.to_string(),"q1=",queue1.to_string(),"empty_brackets[i]",empty_brackets[0])
         else:
-            False
-    return True
+            print("q1",queue1.to_string())
+
+            print("after else comp[0]",empty_brackets[0])
+            queue1.dequeue()
+            print("after False -> deque[this is queue1]",queue1.to_string())
+            print("Q2",queue2.to_string())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #     queue.enqueue(s1[bracket])
+    #     stack.push(s2[bracket])
+    # while not stack.is_empty():
+    #     if  queue.front.value + stack.top.value in ["{}","()","[]"] :
+    #         stack.pop()
+    #         queue.dequeue()
+    #     else:
+    #         False
+    # return True
 
 
 
 if __name__ == "__main__":
-    print(validate_brackets("(a)"))
+    print(validate_brackets("(){][}[]"))
