@@ -175,16 +175,13 @@ def validate_brackets (string):
     validation_arr = ["{}","()","[]"]
     empty_brackets = re.sub(r"[^\]\[\(\)\{\}]+", "" , string ) # remove extra characters 
 
-    if len(empty_brackets) and empty_brackets in ["(","[","{"] : 
-        print (f"error unmatched opening {empty_brackets} remaining.")  # handel unmatched opening
-        return False
-    if len(empty_brackets) and empty_brackets in [")","]","}"] :
-        print (f"error closing {empty_brackets} arrived without corresponding opening")  # handel closing without corresponding opening
-        return False
+    if len(empty_brackets) and empty_brackets in ["(","[","{"] : # handel unmatched opening
+        return False , (f"error unmatched opening {empty_brackets} remaining.")
+    if len(empty_brackets) and empty_brackets in [")","]","}"] :  # handel closing without corresponding opening
+        return False ,(f"error closing {empty_brackets} arrived without corresponding opening") 
     if len(empty_brackets) % 2 != 0 :return False   # check if the string is odd 
-    if len(empty_brackets) == 2 and empty_brackets[0] + empty_brackets [1] not in validation_arr : 
-        print(f"error closing {empty_brackets[1]}. Doesn’t match opening {empty_brackets[0]}.")   # handel one bracket open close case
-        return False
+    if len(empty_brackets) == 2 and empty_brackets[0] + empty_brackets [1] not in validation_arr :  # handel one bracket open close case
+        return False , (f"error closing {empty_brackets[1]}. Doesn’t match opening {empty_brackets[0]}.") 
     for bracket in range(len(empty_brackets)):
         queue1.enqueue(empty_brackets[bracket])   # enqueue the srting into the queue1
     queue1.dequeue()  
