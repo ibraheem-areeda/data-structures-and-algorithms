@@ -173,68 +173,51 @@ def validate_brackets (string):
     queue1 = Queue()
     queue2 = Queue()
     validation_arr = ["{}","()","[]"]
-    empty_brackets = re.sub(r"[^\]\[\(\)\{\}]+", "" , string )
+    empty_brackets = re.sub(r"[^\]\[\(\)\{\}]+", "" , string ) # remove extra characters 
 
-    print("all",empty_brackets)
-    if len(empty_brackets) % 2 != 0 :return False
+    if len(empty_brackets) and empty_brackets in ["(","[","{"] : 
+        print (f"error unmatched opening {empty_brackets} remaining.")  # handel unmatched opening
+        return False
+    if len(empty_brackets) and empty_brackets in [")","]","}"] :
+        print (f"error closing {empty_brackets} arrived without corresponding opening")  # handel closing without corresponding opening
+        return False
+    if len(empty_brackets) % 2 != 0 :return False   # check if the string is odd 
+    if len(empty_brackets) == 2 and empty_brackets[0] + empty_brackets [1] not in validation_arr : 
+        print(f"error closing {empty_brackets[1]}. Doesn’t match opening {empty_brackets[0]}.")   # handel one bracket open close case
+        return False
     for bracket in range(len(empty_brackets)):
-        queue1.enqueue(empty_brackets[bracket])
-
-    queue1.dequeue()
-    i=0
-
+        queue1.enqueue(empty_brackets[bracket])   # enqueue the srting into the queue1
+    queue1.dequeue()  
 
     while queue1.front :
-        print("theloop is", queue1.front is not None)
-        print("iiiiiiiiiii",i)
-        print("befor if statment empty_brackets[i]",empty_brackets[0], "q1=", queue1.to_string(),"q1.front",queue1.front.value, "q2=",queue2.to_string())
         if empty_brackets[0]+ queue1.front.value in  validation_arr :
-            i += 1
-            print("ttttttttttt",empty_brackets[0]+ queue1.front.value)
             queue1.dequeue()
-            print("afer deqe for match",queue1.to_string())
             if queue1.front :
                 empty_brackets = queue1.front.value
                 queue1.dequeue()
-                print("afer deqe for compare",queue1.to_string())
             else:
-                return True
-
-
-            print("ok")
-            print("after True ","q2=",queue2.to_string(),"q1=",queue1.to_string(),"empty_brackets[i]",empty_brackets[0])
+                return True   # return True when the queue1 is empty 
         else:
-            print("q1",queue1.to_string())
-
             test = queue1.to_string()
-            # print(test[0],test[1],test[2] )
-            if test[0] + test[2] in validation_arr and test[0] != test[1] and test[2] != test[1]:
-                return False
-
-            print("after else comp[0]",empty_brackets[0])
+            if len(test)>=3 and test[0] + test[2] in validation_arr and test[0] != test[1] and test[2] != test[1]:
+                return False        # to handel the alternated open cloese case
             temp = queue1.front
             queue1.dequeue()
-            queue2.enqueue(temp)
-            print("after False -> deque[this is queue1]",queue1.to_string())
-            print("Q2",queue2.to_string())
+            queue2.enqueue(temp)     # to save the unmatched brakcets in queue2
 
     while queue2.front:
         temp = queue2.front
         queue2.dequeue()
-        queue1.enqueue(temp)
-        print("nnnnnnnnnode",queue1.front.value)
+        queue1.enqueue(temp)        # to return the unmatched brakcets to queue1
 
     while queue1.front :
-        if str(queue1.front.value) + empty_brackets[0] in validation_arr :
+        if str(queue1.front.value) + empty_brackets[0] in validation_arr :      # apply the same logc befor but in backwords
             queue1.dequeue()
             if queue1.front :
                 empty_brackets = queue1.front.value
                 queue1.dequeue()
-                print("afer deqe for compare",queue1.to_string())
             else:
-                    return True
-
-
+                    return True      # return True when the queue1 is empty 
 
 if __name__ == "__main__":
     print(validate_brackets("{}"))
@@ -245,5 +228,7 @@ if __name__ == "__main__":
     print(validate_brackets("[({}]"))
     print(validate_brackets("(]("))
     print(validate_brackets("{(})"))
-
-
+    print(validate_brackets("{]"))
+    print(validate_brackets("[({})]"))
+    print(validate_brackets("{"))
+    print(validate_brackets(")"))
