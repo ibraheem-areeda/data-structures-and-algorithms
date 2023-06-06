@@ -1,8 +1,7 @@
 # stack_queue_brackets
 The code challenge is to implement a function called "validate_brackets" that takes a string as input and determines whether the brackets in the string are balanced. The function should return a boolean value indicating whether the brackets are balanced or not. The brackets to consider are round brackets (), square brackets [], and curly brackets {}.
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
-
+![](./assets/stack_queue_brackets.png)
 ## Approach & Efficiency
 The code implements a function called "validate_brackets" to check if the brackets in a given string are balanced. It follows a simple approach of removing non-bracket characters from the string and then iteratively checking for valid pairs of brackets. The code uses two queues to store the brackets, dequeues them when valid pairs are found, and checks for error cases such as unmatched opening or closing brackets. Finally, it returns True if all brackets are balanced, and False otherwise. The time and space complexity of the code are both O(n), where n is the length of the input string.
 
