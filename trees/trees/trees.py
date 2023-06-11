@@ -275,18 +275,18 @@ class Binary_Search_Tree(Tree):
         tn_value = Tnode(value)
 
         def _walk(root):
-            if root:
-                if root.value < tn_value.value:
-                    if root.right is not None:
-                        _walk(root.right)
-                    else:
-                        root.right = Tnode(value)
+            
+            if root.value <= tn_value.value:
+                if root.right:
+                    _walk(root.right)
+                else:
+                    root.right = Tnode(value)
 
-                if root.value > tn_value.value:
-                    if root.left is not None:
-                        _walk(root.left)
-                    else:
-                        root.left = Tnode(value)
+            if root.value > tn_value.value:
+                if root.left:
+                    _walk(root.left)
+                else:
+                    root.left = Tnode(value)
 
         _walk(self.root)
 
@@ -300,34 +300,22 @@ class Binary_Search_Tree(Tree):
         Returns:
             True if the binary search tree contains a node with the given value, False otherwise.
         """
-        if self.root.value == value:
-            return True
 
         def _walk(root):
-            global result
-            if root:
-                if root.value < value:
-                    if not root.right:
-                        result = False
-                        return result
-                    if root.right.value == value:
-                        result = True
-                        return result
-                    else:
-                        _walk(root.right)
+            
+            if root is None :
+                return False
 
-                if root.value > value:
-                    if not root.left:
-                        result = False
-                        return result
-                    if root.left.value == value:
-                        result = True
-                        return result
-                    else:
-                        _walk(root.left)
+            if root.value == value:
+                return True
+        
+            if root.value < value:
+                return _walk(root.right)
 
-        _walk(self.root)
-        return result
+            if root.value > value:
+                return _walk(root.left)
+
+        return _walk(self.root)
 
 
 if __name__=="__main__":
@@ -341,7 +329,7 @@ if __name__=="__main__":
     brs_tst.add(15)
     brs_tst.add(30)
 
-    print(brs_tst.post_order())
+    print(brs_tst.breadth_first())
     print(brs_tst.contains(10))
     print(brs_tst.contains(8))
     print(brs_tst.contains(20))
