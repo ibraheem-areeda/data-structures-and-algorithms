@@ -1,136 +1,102 @@
-class Node:
-    def __init__(self, value, next_=None):
-        """
-        Initialize a new Node object.
+import pytest
+from trees.trees.trees import (
+    Node,
+    Tnode,
+    Queue,
+    Tree,
+    Binary_Search_Tree
+)
 
-        Args:
-            value: The value to be stored in the node.
-            next_: Reference to the next node in the linked list. Default is None.
-        """
-        self.value = value
-        self.next_ = next_
-class Queue:
-    def __init__(self, front=None, back = None):
-        """
-        Initialize a new Queue object.
+def test_instantiate_an_empty_tree():
+    tst_tree = Tree()
+    actual = str(tst_tree) #call the function with the test value
+    expected = "this Tree is empty" #put the expected result 
+    assert actual == expected  #it will return true or false 
 
-        Args:
-            front: The front node of the queue. Default is None.
-        """
-        self.front = front
-        self.back = back
+def test_instantiate_tree_single_root_node():
+    l = Tnode(8)
+    r = Tnode(20)
+    tn1 = Tnode(10,r,l)
+    tst_tree = Tree()
+    tst_tree.root = tn1
+    actual = str(tst_tree) 
+    expected = "the Tree root = 10," 
+    assert actual == expected  
 
-    def __str__(self):
-        """
-        Return a string representation of the Queue.
+def test_BST_add_left_child_and_right_child_properly():
+    l = Tnode(8)
+    r = Tnode(20)
+    tn1 = Tnode(10,r,l)
+    brs_tst = Binary_Search_Tree(tn1)
+    brs_tst.add(7)
+    brs_tst.add(9)
+    brs_tst.add(15)
+    brs_tst.add(30)
+    actual = brs_tst.breadth_first()
+    expected = [10, 8, 20, 7, 9, 15, 30]
+    assert actual == expected  
 
-        Returns:
-            A string representation of the value stored in the front node of the Queue.
-            If the queue is empty, returns "This queue is empty".
-        """
-        if self.front is None:
-            return "this queue is empty"
-        return f"the queue front = {self.front.value},"
+def test_pre_order_traversal():
+    l = Tnode(8)
+    r = Tnode(20)
+    tn1 = Tnode(10,r,l)
+    brs_tst = Binary_Search_Tree(tn1)
+    brs_tst.add(7)
+    brs_tst.add(9)
+    brs_tst.add(15)
+    brs_tst.add(30)
+    actual = brs_tst.pre_order()
+    expected = [10, 8, 7, 9, 20, 15, 30]
+    assert actual == expected  
 
-    def enqueue(self, value):
-        """
-        Adds a value to the end of the queue.
+def test_post_order_traversal():
+    l = Tnode(8)
+    r = Tnode(20)
+    tn1 = Tnode(10,r,l)
+    brs_tst = Binary_Search_Tree(tn1)
+    brs_tst.add(7)
+    brs_tst.add(9)
+    brs_tst.add(15)
+    brs_tst.add(30)
+    actual = brs_tst.post_order()
+    expected = [7, 9, 8, 15, 30, 20, 10]
+    assert actual == expected 
 
-        Args:
-            value: The value to be added to the queue.
-        """
-        node = Node(value)
-        if self.front is None:
-            self.front = node
-        else:
-            self.back = self.front
-            while self.back.next_:
-                self.back = self.back.next_
-            self.back.next_ = node
+def test_in_order_traversal():
+    l = Tnode(8)
+    r = Tnode(20)
+    tn1 = Tnode(10,r,l)
+    brs_tst = Binary_Search_Tree(tn1)
+    brs_tst.add(7)
+    brs_tst.add(9)
+    brs_tst.add(15)
+    brs_tst.add(30)
+    actual = brs_tst.in_order()
+    expected = [7, 8, 9, 10, 15, 20, 30]
+    assert actual == expected 
 
-    def dequeue(self):
-        """
-        Removes and returns the value from the front of the queue.
+def test_contains_true():
+    l = Tnode(8)
+    r = Tnode(20)
+    tn1 = Tnode(10,r,l)
+    brs_tst = Binary_Search_Tree(tn1)
+    brs_tst.add(7)
+    brs_tst.add(9)
+    brs_tst.add(15)
+    brs_tst.add(30)
+    actual = brs_tst.contains(10)
+    expected = True
+    assert actual == expected 
 
-        Returns:
-            The value that was removed from the front of the queue.
-            If the queue is empty, returns "This queue is empty".
-        """
-        if self.front is None:
-            raise Exception("this queue is empty")
-        temp = self.front.value
-        self.front = self.front.next_
-        return temp
-
-    def peek(self):
-        """
-        Returns the value from the front of the queue without removing it.
-
-        Returns:
-            The value from the front of the queue.
-            If the queue is empty, returns "This queue is empty".
-        """
-        if self.front is None:
-            raise Exception("this queue is empty")
-        return f"the queue front = {self.front.value},"
-
-    def is_empty(self):
-        """
-        Checks if the queue is empty.
-
-        Returns:
-            True if the queue is empty, False otherwise.
-        """
-        return self.front is None
-    
-    def to_string (self):
-        temp = self.front
-        string = ""
-        while temp:
-            string += str(temp.value)
-            temp = temp.next_
-        return string
-
-class tnode:
-    def __init__(self, value, right = None , left = None):
-        self.value = value
-        self.right = right
-        self.left = left
-
-class Tree:
-    def __init__(self):
-        self.root = None
-
-    def breadth_first(self):
-        if not self.root:
-            return "this tree is empty"
-        
-        breadth = Queue()
-        output = []
-        breadth.enqueue(self.root)
-
-        while not breadth.is_empty():
-            tn_front = breadth.dequeue()
-            breadth.dequeue()
-            output.append(tn_front.value)
-            
-            if tn_front.left:
-                breadth.enqueue(tn_front.left)
-            
-            if tn_front.right:
-                breadth.enqueue(tn_front.right)
-        return output
-    
-    def pre_order (self):
-
-        def _walk(root):
-            print (root.value)
-        if root.left:
-            _walk(root.left)
-
-        if root.right:
-            _walk(root.right)
-
-        _walk(self.root)
-
-
+def test_contains_False():
+    l = Tnode(8)
+    r = Tnode(20)
+    tn1 = Tnode(10,r,l)
+    brs_tst = Binary_Search_Tree(tn1)
+    brs_tst.add(7)
+    brs_tst.add(9)
+    brs_tst.add(15)
+    brs_tst.add(30)
+    actual = brs_tst.contains(56)
+    expected = False
+    assert actual == expected 
