@@ -12,3 +12,4 @@
 | stack-queue-pseudo | [Link](./stack-queue-pseudo/stack-queue-pseudo.md) |
 | stack-queue-animal-shelter | [Link](./stack-queue-animal-shelter/stack-queue-animal-shelter.md) |
 | stack_queue_brackets | [Link](./stack_queue_brackets/stack_queue_brackets.md) |
+| trees | [Link](./trees/trees.md) |
