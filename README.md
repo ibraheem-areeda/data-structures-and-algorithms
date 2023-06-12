@@ -13,3 +13,4 @@
 | stack-queue-animal-shelter | [Link](./stack-queue-animal-shelter/stack-queue-animal-shelter.md) |
 | stack_queue_brackets | [Link](./stack_queue_brackets/stack_queue_brackets.md) |
 | trees | [Link](./trees/trees.md) |
+| tree_max | [Link](./tree_max/tree_max.md) |
