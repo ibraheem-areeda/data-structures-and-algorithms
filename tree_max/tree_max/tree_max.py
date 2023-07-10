@@ -331,23 +331,65 @@ class Binary_Search_Tree(Tree):
 
 
 
+def comp(tree1,tree2):
+    leaf_t1 = 0
+    leaf_t2 = 0
+    qt1 = Queue()
+    qt2 = Queue()
+      
+    qt1.enqueue(tree1.root)
+    while not qt1.is_empty():
+        front = qt1.dequeue()
+        if front.left == None and front.right == None:
+            leaf_t1 += 1
+        if front.left:
+          qt1.enqueue(front.left)
+        if front.right:
+          qt1.enqueue(front.right)
 
+    qt2.enqueue(tree2.root)
+    while not qt2.is_empty():
+        front = qt2.dequeue()
+        if front.left == None and front.right == None:
+            leaf_t2 += 1
+        if front.left:
+          qt2.enqueue(front.left)
+        if front.right:
+          qt2.enqueue(front.right)
 
-
-
+    if leaf_t1 == leaf_t2:
+        print(11111,leaf_t1,leaf_t2)
+        return True 
+    else:
+        print(11111,leaf_t1,leaf_t2)
+        return False
+      
 
 
 
 
 if __name__ == "__main__":
-    l = Tnode(8)
-    r = Tnode(20)
-    tn1 = Tnode(10,r,l)
-    brs_tst = Binary_Search_Tree(tn1)
-    print(brs_tst.root)
-    brs_tst.add(7)
-    brs_tst.add(55)
-    brs_tst.add(15)
-    brs_tst.add(30)
-    print(brs_tst.tree_max())
-    print(brs_tst.breadth_first())
+    l1 = Tnode(8)
+    r1 = Tnode(20)
+    tn1 = Tnode(10,r1,l1)
+    brs_tst1 = Binary_Search_Tree(tn1)
+    brs_tst1.add(7)
+    brs_tst1.add(55)
+    brs_tst1.add(15)
+    brs_tst1.add(30)
+    print(brs_tst1.breadth_first())
+
+
+    l2 = Tnode(8)
+    r2 = Tnode(20)
+    tn2 = Tnode(10,r2,l2)
+    brs_tst2 = Binary_Search_Tree(tn2)
+    brs_tst2.add(7)
+    brs_tst2.add(55)
+    brs_tst2.add(15)
+    brs_tst2.add(30)
+    print(brs_tst2.breadth_first())
+
+    
+    
+    print(comp(brs_tst1,brs_tst2))
