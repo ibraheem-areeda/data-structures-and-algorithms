@@ -14,3 +14,4 @@
 | stack_queue_brackets | [Link](./stack_queue_brackets/stack_queue_brackets.md) |
 | trees | [Link](./trees/trees.md) |
 | tree_max | [Link](./tree_max/tree_max.md) |
+| insertion_sort | [Link](./sortingandinsertion/sorting-insertion.md) |
