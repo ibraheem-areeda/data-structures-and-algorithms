@@ -3,7 +3,7 @@
 Iteration 1:
 - `key = 4`
 - Compare `4` with `8`. Since `4` is smaller, we shift `8` to the right.
-- `arr = [8, 8, 23, 42, 16, 15]`
+- `arr = [*, 8, 23, 42, 16, 15]`
 - Update `j = 0`
 - Insert `key` at the correct position.
 - `arr = [4, 8, 23, 42, 16, 15]`
@@ -33,34 +33,34 @@ Iteration 3:
 Iteration 4:
 - `key = 16`
 - Compare `16` with `42`. Since `16` is smaller, we shift `42` to the right.
-- `arr = [4, 8, 23, 42, 42, 15]`
+- `arr = [4, 8, 23, *, 42, 15]`
 - Update `j = 3`
 - Compare `16` with `23`. Since `16` is smaller, we shift `23` to the right.
-- `arr = [4, 8, 23, 23, 42, 15]`
+- `arr = [4, 8, *, 23, 42, 15]`
 - Update `j = 2`
 - Compare `16` with `8`. Since `16` is larger, we don't shift any elements.
-- `arr = [4, 8, 23, 23, 42, 15]`
+- `arr = [4, 8, *, 23, 42, 15]`
 - Compare `16` with `4`. Since `16` is larger, we don't shift any elements.
-- `arr = [4, 8, 23, 23, 42, 15]`
+- `arr = [4, 8, *, 23, 42, 15]`
 - Insert `key` at the correct position.
 - `arr = [4, 8, 16, 23, 42, 15]`
 
 Iteration 5:
 - `key = 15`
 - Compare `15` with `42`. Since `15` is smaller, we shift `42` to the right.
-- `arr = [4, 8, 16, 23, 42, 42]`
+- `arr = [4, 8, 16, 23, * , 42]`
 - Update `j = 4`
 - Compare `15` with `23`. Since `15` is smaller, we shift `23` to the right.
-- `arr = [4, 8, 16, 23, 23, 42]`
+- `arr = [4, 8, 16, *, 23, 42]`
 - Update `j = 3`
 - Compare `15` with `16`. Since `15` is smaller, we shift `16` to the right.
-- `arr = [4, 8, 16, 16, 23, 42]`
+- `arr = [4, 8, *, 16, 23, 42]`
 - Update `j = 2`
-- Compare `15` with `8`. Since `15` is smaller, we shift `8` to the right.
-- `arr = [4, 8, 8, 16, 23, 42]`
+- Compare `15` with `8`. Since `15` is larger, we don't shift any elements.
+- `arr = [4, 8, *, 16, 23, 42]`
 - Update `j = 1`
 - Compare `15` with `4`. Since `15` is larger, we don't shift any elements.
-- `arr = [4, 8, 8, 16, 23, 42]`
+- `arr = [4, 8, *, 16, 23, 42]`
 - Insert `key` at the correct position.
 - `arr = [4, 8, 15, 16, 23, 42]`
 
