@@ -84,6 +84,16 @@ After the iterations, the sorted array is `[4, 8, 15, 16, 23, 42]`.
 
 After the iterations, the sorted array is `[4, 8, 15, 16, 23, 42]`.
 
+## efficiency
+The efficiency of the Insertion Sort algorithm can be analyzed in terms of its time complexity and space complexity.
+
+Time Complexity:
+- Worst case: O(n^2) when the input array is in reverse sorted order. In the worst case, the algorithm requires n-1 comparisons and shifts for each element, resulting in a quadratic time complexity.
+
+Space Complexity:
+- The space complexity of the Insertion Sort algorithm is O(1) because it performs in-place sorting. It does not require any additional space proportional to the input size.
+
+
 
 
 ```
