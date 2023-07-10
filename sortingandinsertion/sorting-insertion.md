@@ -66,23 +66,6 @@ Iteration 5:
 
 After the iterations, the sorted array is `[4, 8, 15, 16, 23, 42]`.
  
- this table will explain it shortly 
-
-| Iteration | Key | Array                        |
-|-----------|-----|------------------------------|
-| 1         | 4   | [**8**, 8, 23, 42, 16, 15]   |
-|           |     | [**4**, 8, 23, 42, 16, 15]   |
-| 2         | 23  | [4, **8**, 23, 42, 16, 15]   |
-| 3         | 42  | [4, 8, **23**, 42, 16, 15]   |
-| 4         | 16  | [4, 8, 23, **42**, 16, 15]   |
-|           |     | [4, 8, **23**, **23**, 42, 15] |
-|           |     | [4, 8, **16**, 23, 23, 42]   |
-| 5         | 15  | [4, 8, 16, **23**, 23, 42]   |
-|           |     | [4, 8, **16**, **16**, 23, 42] |
-|           |     | [4, **8**, 16, 16, 23, 42]   |
-|           |     | [**4**, 8, 16, 16, 23, 42]   |
-
-After the iterations, the sorted array is `[4, 8, 15, 16, 23, 42]`.
 
 ## efficiency
 The efficiency of the Insertion Sort algorithm can be analyzed in terms of its time complexity and space complexity.
