@@ -1,6 +1,3 @@
-# sorting-merge
-
-```
 def merge_sort(arr):
     n = len(arr)
     if n > 1:
@@ -33,4 +30,5 @@ def merge(left, right, arr):
         j += 1
         k += 1
 
-```
+if __name__ == "__main_":
+    i=0
