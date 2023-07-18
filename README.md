@@ -16,3 +16,4 @@
 | tree_max | [Link](./tree_max/tree_max.md) |
 | insertion_sort | [Link](./sortingandinsertion/sorting-insertion.md) |
 | sorting-merge | [Link](./sortingMerge/sorting_Merge.md) |
+| Sorting-Comparisons | [Link](./Sorting-Comparisons/Sorting-Comparisons.md) |
