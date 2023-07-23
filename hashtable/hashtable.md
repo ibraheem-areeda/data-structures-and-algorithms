@@ -111,11 +111,6 @@ class HashTable:
     Returns a list of all the  keys present in the Hashtable.
     '''
     return self.keys
-  
-if __name__ =="__main__":
-    
-    hashtable = HashTable()
-    hashtable.set("key1", "value1")
-    print(hashtable.keys())
+
 ```
 
