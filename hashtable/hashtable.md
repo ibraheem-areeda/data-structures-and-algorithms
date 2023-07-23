@@ -16,7 +16,8 @@ the `set` and `get` methods of the `HashTable` class have an average time comple
 ```
 class Node:
   '''
-  A class represent a node in a linked list or other data structure each node has two main componenet the value of the node and the reference to the next node.
+  A class represent a node in a linked list or other data structure each node has two
+main componenet the value of the node and the reference to the next node.
   args: value
   return : nothing
   '''
