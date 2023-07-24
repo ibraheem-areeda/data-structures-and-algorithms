@@ -97,14 +97,45 @@ class HashTable:
     return self.keys
   
 
-def repeated_word (string):
-   
-    pattern = r"\b\w+\b"  
-    matches = re.finditer(pattern, string)
-    for match in matches:
-        selected_word = match.group()
+def repeated_word (in_srting):
+    '''
+    args : string
+    Returns the first repeated word in a string
+    '''
+    hashtable = HashTable() 
+    temp = ""
+    word = ""
+    pattern = r"[^\w\s]"
+    srting = re.sub(pattern, "", in_srting)
+
+    for i in range(len(srting) - 1,-1,-1):
+                
+        if(srting[i] != ' '):
+            temp += srting[i]
         
-    hashtable = HashTable()
+        else:
+                        
+            if(hashtable.has(temp)):
+                word = temp
+            else:
+                hashtable.set(temp,1)
+            
+            temp = ""
+            
+    if(hashtable.has(temp)):
+        word=temp
+                        
+    if(word!=""):
+
+        word = word[::-1]
+        return word
+    else:
+        return "No Repetition"
+
+
+
+        
+    
 
    
   
@@ -114,6 +145,6 @@ if __name__ =="__main__":
     hashtable.set("key1", "value1")
     print(hashtable.keys)
 
-    string = "Once upon a time, there was a brave princess"
+    string = "This is a test string with repeated word test in the middle."
 
     print(repeated_word(string))
