@@ -17,4 +17,4 @@
 | insertion_sort | [Link](./sortingandinsertion/sorting-insertion.md) |
 | sorting-merge | [Link](./sortingMerge/sorting_Merge.md) |
 | Sorting-Comparisons | [Link](./sortingComparisons/Sorting-Comparisons.md) |
-
+| hashtable | [Link](./hashtable/hashtable.md) |
