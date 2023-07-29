@@ -1,7 +1,7 @@
 # Challenge Title
 write a fuction to Find the first repeated word in a string in python using hashmap 
 ## Whiteboard Process
-not required for the code challange
+![](./ccccc.png)
 
 ## Approach & Efficiency
     Time Complexity: The time complexity of the function is O(N), where N is the length of the input string. The loop runs through the entire string once.
