@@ -360,63 +360,45 @@ class Binary_Search_Tree(Tree):
 
         return _walk(self.root)
 
-def tree_intersection (t1,t2):
-  hasht = HashTable()
-  print("ok")
-  def _walk(t1,t2):
-      print(t1.value , hasht.get(str(t1.value)))
-      if t1.value is not None or t2.value is not None:
-        if t1.value == t2.value and not hasht.has(str(t1.value)):
-          cnt =1
-          print("root")
-          hasht.set(str(t1.value), cnt )
-
-        else:
-          print(111111)
-          cnt = hasht.get(str(t1.value)) + 1
-          hasht.update(str(t1.value), cnt )
-          # print(t1.left.value)
-          # print(t2.left.value)
-
-
-      if t1.left is not None or t2.left is not None:
-        if t1.left == t2.left and not hasht.has(str(t1.left.value)):
-             print("created left",t1.left.value )
-             cnt =1
-             hasht.set(str(t1.left.value),cnt)
-        else:
-             cnt += 1
-             hasht.update(str(t1.left.value),cnt)
-             print(2222222222)
-        _walk(t1.left,t2.left)
-
-      if t1.right is not None or t2.right is not None:
-        if t1.right == t2.right and not hasht.has(str(t1.right.value)):
-             cnt =1
-            #  print("created right",t1.left.value)
-             hasht.set(str(t1.right.value),cnt)
-        else:
-             cnt += 1
-             hasht.update(str(t1.right.value), cnt)
-             print(3333333)
-        _walk(t1.right,t2.right)
-        
-         
-  _walk(t1.root,t2.root)
-  for key in hasht.keys:
-      if hasht.get(key) > 1 :
-          hasht.keys.remove(key)
-
-      
-  
-  return hasht.keys
+def tree_intersection(tree1, tree2):
+    """
+    Find the intersection of values between two binary trees.
     
+    Parameters:
+        tree1 (BinaryTree): The first binary tree.
+        tree2 (BinaryTree): The second binary tree.
+
+    Returns:
+        list: A list containing the values that are common to both trees
+    """
+    
+    hasht = HashTable()
+
+    def save (node):
+        if node:
+            hasht.set(str(node.value), 1)
+            save (node.left)
+            save (node.right)
+    save (tree1.root)
+
+    intersection = []
+
+    def check_saved (node):
+        if node:
+            if hasht.has(str(node.value)) :
+                if node.value not in intersection:
+                    intersection.append(node.value)
+            check_saved (node.left)
+            check_saved (node.right)
+    check_saved (tree2.root)
+
+    return intersection
   
 if __name__ =="__main__":
     
     hashtable = HashTable()
     hashtable.set("key1", "value1")
-    print(hashtable.keys())
+    # print(hashtable.keys())
 
     
     l = Tnode(81)
@@ -439,6 +421,6 @@ if __name__ =="__main__":
 
 
 
-    print(tree_intersection(t1,t1), "res")
+    print(tree_intersection(t1,t1))
 
 
