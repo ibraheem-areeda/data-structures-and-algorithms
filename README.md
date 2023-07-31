@@ -19,3 +19,4 @@
 | Sorting-Comparisons | [Link](./sortingComparisons/Sorting-Comparisons.md) |
 | hashtable | [Link](./hashtable/hashtable.md) |
 | hashmap Repeated Word | [Link](./hashmap_repeated_word/hashmapRepeatedWord.md) |
+| tree_intersection | [Link](./tree_intersection/tree_intersection.md) |
