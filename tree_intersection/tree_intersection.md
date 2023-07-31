@@ -5,7 +5,7 @@ Write a function called tree_intersection that takes two binary trees as paramet
 Using your Hashmap implementation as a part of your algorithm, return a set of values found in both trees.
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![](./cc32.png)
 
 ## Approach & Efficiency
     Time Complexity: The time complexity is dominated by the two recursive functions, save and check_saved, which traverse the nodes of tree1 and tree2 respectively. The time complexity of traversing the binary trees in DFS is O(n), where 'n' is the total number of nodes in each tree. In the worst case, each node's value will be inserted into the hash table, and each node's value from the second tree will be checked in the hash table. So, the overall time complexity is O(n + m), where 'n' is the number of nodes in the first tree, and 'm' is the number of nodes in the second tree.
