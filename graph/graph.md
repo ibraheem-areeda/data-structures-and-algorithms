@@ -4,6 +4,7 @@ Implement a graph Class with the following methods:
  - add_edge
  - get_vertices
  - size
+ - get_neighbors
  - breadth_first
 
 ## Whiteboard Process
@@ -12,40 +13,35 @@ no Whiteboard requiered
 ## Approach & Efficiency
 the time and space complexities for each of the methods in the graph class:
 
-1. `add_vertex`:
+1. **add_vertix**
    - Time Complexity: O(1)
-     This method involves creating a new Vertex object and adding an empty list to the adjacency list. Both of these operations take constant time.
-
    - Space Complexity: O(1)
-     The additional space used is proportional to the new vertex and the empty list added to the adjacency list. Since the amount of memory used is constant regardless of the size of the graph, the space complexity is constant.
+   - Explanation: Adding a vertex involves creating a Vertix object and adding it to the adjacency list, which is a dictionary. Both operations are constant time operations.
 
-2. `add_edge`:
+2. **add_edge**
    - Time Complexity: O(1)
-     The time complexity of adding an edge is constant since it involves appending elements to lists (adjacency lists) for the two vertices.
-
    - Space Complexity: O(1)
-     Similar to the `add_vertex` method, the space complexity is constant because it involves adding references to edge objects in the adjacency lists.
+   - Explanation: Adding an edge involves appending an Edge object to the adjacency list of two vertices. This operation is constant time as well since dictionaries are used for the adjacency list.
 
-3. `get_vertices`:
-   - Time Complexity: O(V), where V is the number of vertices.
-     The method iterates through the keys of the adjacency list, which represent the vertices. In the worst case, it has to iterate through all vertices, resulting in a linear time complexity.
-
+3. **get_vertices**
+   - Time Complexity: O(V), where V is the number of vertices
    - Space Complexity: O(V)
-     The space complexity is proportional to the number of vertices because it returns a collection containing all vertices.
+   - Explanation: The method simply returns the keys (vertices) of the adjacency list dictionary. The time complexity is linear in the number of vertices since it involves iterating over all vertices.
 
-4. `size`:
+4. **size**
    - Time Complexity: O(1)
-     The size of the graph is stored internally as the length of the adjacency list. Retrieving this value is a constant-time operation.
-
    - Space Complexity: O(1)
-     The space complexity is constant since it involves storing a single integer value representing the size of the graph.
+   - Explanation: The method directly returns the length of the adjacency list, which is stored as a property of the graph object. Therefore, it's a constant time operation.
 
-5. `breadth_first`:
-   - Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges.
-     In the worst case, each vertex and edge will be visited once. Visiting each vertex takes constant time, and visiting each edge is also constant time due to the nature of adjacency lists.
+5. **get_neighbors**
+   - Time Complexity: O(1) on average (amortized), but O(E) in worst case, where E is the number of edges
+   - Space Complexity: O(E), where E is the number of edges
+   - Explanation: In average cases, looking up neighbors for a given vertex in the adjacency list dictionary is a constant time operation. However, in the worst case, where a vertex has a large number of neighbors, the time complexity becomes proportional to the number of neighbors (edges) connected to that vertex.
 
-   - Space Complexity: O(V)
-     The space complexity is determined by the additional data structures used during the breadth-first traversal, namely the queue and the visited set. In the worst case, all vertices are enqueued in the queue (V elements) and stored in the visited set (V elements). Therefore, the space complexity is proportional to the number of vertices.
+6. **breadth_first**
+   - Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges
+   - Space Complexity: O(V), where V is the number of vertices (for the visited set and the queue)
+   - Explanation: The breadth-first traversal visits all vertices and edges in the graph. Each vertex is enqueued and dequeued once, leading to a total of O(V) operations. The exploration of edges depends on the number of edges connected to each vertex, and in the worst case, the total number of edges might be traversed, contributing to the O(E) term in the time complexity.
 
 ## Solution
 ```
