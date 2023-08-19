@@ -1,4 +1,4 @@
-# Challenge Title : hashtable
+# Challenge Title : graph
 Implement a graph Class with the following methods:
  - add_vertix
  - add_edge
