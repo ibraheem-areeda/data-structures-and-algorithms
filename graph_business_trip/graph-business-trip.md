@@ -5,8 +5,6 @@ Create a function called "business trip" that takes a graph of city connections 
 ![](./cc%2037.png)
 
 ## Approach & Efficiency
-Certainly, here's a more concise analysis of the time and space complexity of the given code:
-
 **Time Complexity:**
 The time complexity of the code is O(n * m) or O(n^2), where:
 - `n` is the number of cities in the `arr_cities` array.
