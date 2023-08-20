@@ -33,7 +33,7 @@ class Edge:
         self.vertix = vertix
 
     def __str__(self):
-        return str(self.vertix) + str(self.weight)
+        return str(self.vertix)
 
 class Graph:
 
@@ -122,41 +122,38 @@ class Graph:
 
         return result
         
-    
-def business_trip(graph, cities):
-    total_cost = 0
-    
-    for i in range(len(cities) - 1):
-        current_city = cities[i]
-        next_city = cities[i + 1]
-        print(current_city)
-        print(next_city)
-        path = []
-        for city in graph.get_neighbors(current_city):
-            path.append(city.vertix.value)
-            print(path)
-        if str(next_city) not in path :
-            print(1111111,next_city)
-            return None
+def business_trip(graph, arr_cities):
+    cost = 0
+    if len(arr_cities) == 0:
+        return None
+    for city in range(len(arr_cities) - 1):
+        for neighbor in graph.get_neighbors(arr_cities[city]):
+            if neighbor.vertix == arr_cities[city + 1]:
+                cost += neighbor.weight
+                print(neighbor)
+    if cost == 0:
+        return 'Null'
+    else:
+        return f"${cost}"
 
-    
-    return total_cost
-    
 
 if __name__ == "__main__":
-    g = Graph()
-    a = g.add_vertix('A')
-    b = g.add_vertix('B')
-    e = g.add_vertix('E')
-    c = g.add_vertix('C')
-    d = g.add_vertix('D')
-
-    g.add_edge(a,b,5)
-    g.add_edge(a,c,5)
-    g.add_edge(b,d,5)
-    g.add_edge(b,e)
-    g.add_edge(e,d)
-    g.add_edge(e,c)
-    print(g.breadth_first(a))
-    arr = [a,b,c,d]
-    print(business_trip(g,arr))
+    graph = Graph()
+    pandora = graph.add_vertix('pandora')
+    Metroville = graph.add_vertix('Metroville')
+    Narnia = graph.add_vertix('Narnia')
+    Arendelle = graph.add_vertix('Arendelle')
+    New_Monstropolis = graph.add_vertix('New_Monstropolis')
+    Naboo = graph.add_vertix('Naboo')
+    graph.add_edge(pandora, Metroville, 82)
+    graph.add_edge(pandora, Arendelle, 150)
+    graph.add_edge(Metroville, Arendelle, 99)
+    graph.add_edge(Metroville, New_Monstropolis, 105)
+    graph.add_edge(Metroville, Naboo, 26)
+    graph.add_edge(Metroville, Narnia, 37)
+    graph.add_edge(Narnia, Naboo, 250)
+    graph.add_edge(New_Monstropolis,Naboo, 73)
+    graph.add_edge(Arendelle,New_Monstropolis,42)
+    graph.add_edge(Arendelle, pandora, 150)
+    arr=[Arendelle, New_Monstropolis, Naboo]
+    print(business_trip(graph,arr))
