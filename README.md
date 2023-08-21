@@ -21,5 +21,7 @@
 | hashmap Repeated Word | [Link](./hashmap_repeated_word/hashmapRepeatedWord.md) |
 | tree_intersection | [Link](./tree_intersection/tree_intersection.md) |
 | hashmap-left-join | [Link](./hashmap_left_join/hashmap-left-join.md) |
-| graph implimentation | [Link](./graph/graph.py) |
 | graph-business-trip| [Link](./graph_business_trip/graph-business-trip.md) |
+| hashmap-left-join | [Link](./hashmap_left_join/hashmap-left-join.md) |
+| graph implimentation | [Link](./graph/graph.md) |
+
